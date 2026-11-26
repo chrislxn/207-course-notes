@@ -101,7 +101,6 @@ public class Extractor {
    * @return the text with each email address replaced by {@code ***}
    */
   public static String maskEmails(String text) {
-    // TODO: get a Matcher for text from EMAIL and return matcher.replaceAll(MASK).
-    return text;
+    return EMAIL.matcher(text).replaceAll(MASK);
   }
 }
