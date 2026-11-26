@@ -91,7 +91,7 @@ public class OrderSummary {
     report.append("Order summary for ").append(customer).append("\n");
     report.append("----------------------\n");
     for (int i = 0; i < itemNames.length; i++) {
-      report.append(String.format(Locale.US, "%s: $%.2f\n", itemNames[i], itemPrices[i]));
+      report.append(formatItem(itemNames[i], itemPrices[i]));
     }
     report.append(String.format(Locale.US, "Items: %d\n", itemNames.length));
     report.append(String.format(Locale.US, "Premium items: %d\n", premiumCount));
@@ -100,5 +100,9 @@ public class OrderSummary {
     report.append(String.format(Locale.US, "Tax: $%.2f\n", tax));
     report.append(String.format(Locale.US, "Total: $%.2f", total));
     return report.toString();
+  }
+
+  private static String formatItem(String name, double price) {
+    return String.format(Locale.US, "%s: $%.2f\n", name, price);
   }
 }
