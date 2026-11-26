@@ -68,8 +68,10 @@ public class Extractor {
    */
   public static List<String> findCourseCodes(String text) {
     List<String> results = new ArrayList<>();
-    // TODO: get a Matcher for text from COURSE_CODE, then loop with find(),
-    //       adding matcher.group() to results each time.
+    Matcher matcher = COURSE_CODE.matcher(text);
+    while (matcher.find()) {
+      results.add(matcher.group());
+    }
     return results;
   }
 
