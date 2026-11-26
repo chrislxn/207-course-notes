@@ -18,7 +18,7 @@ public class Box<T> {
    * @param item the value to store
    */
   public void set(T item) {
-    // TODO: store item in this box's field (mind the shadowing — use `this`).
+    this.item = item;
   }
 
   /**
@@ -27,8 +27,7 @@ public class Box<T> {
    * @return the stored value
    */
   public T get() {
-    // TODO
-    return null;
+    return item;
   }
 
   /**
@@ -37,8 +36,7 @@ public class Box<T> {
    * @return true iff no item has been stored
    */
   public boolean isEmpty() {
-    // TODO
-    return false;
+    return item == null;
   }
 
   /**
