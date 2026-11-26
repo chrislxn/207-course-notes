@@ -61,22 +61,19 @@ public class OrderSummary {
    * @return the formatted summary, with lines separated by {@code \n}
    */
   public static String summarize(String customer, String[] itemNames, double[] itemPrices) {
-    // TODO (Slide Statements, 13.6): these three declarations are a long way from
-    //      the code that first uses them. Slide each one down to its first use.
     double subtotal = 0.0;
-    int premiumCount = 0;
-    double discount = 0.0;
-
     for (double price : itemPrices) {
       subtotal += price;
     }
 
+    int premiumCount = 0;
     for (double price : itemPrices) {
       if (price >= PREMIUM_ITEM_THRESHOLD) {
         premiumCount++;
       }
     }
 
+    double discount = 0.0;
     if (subtotal > DISCOUNT_THRESHOLD) {
       discount = subtotal * DISCOUNT_RATE;
     }
