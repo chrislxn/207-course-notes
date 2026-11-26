@@ -81,9 +81,12 @@ public class OrderSummary {
     double tax = taxable * TAX_RATE;
     double total = taxable + tax;
 
-    // TODO (Extract Method, 13.2): everything from here down is one job —
-    //      formatting the report. Pull it out into its own well-named method
-    //      (and the per-item line into a second one).
+    return formatReport(customer, itemNames, itemPrices, premiumCount, subtotal, discount, tax, total);
+  }
+
+  private static String formatReport(
+      String customer, String[] itemNames, double[] itemPrices, int premiumCount,
+      double subtotal, double discount, double tax, double total) {
     StringBuilder report = new StringBuilder();
     report.append("Order summary for ").append(customer).append("\n");
     report.append("----------------------\n");
