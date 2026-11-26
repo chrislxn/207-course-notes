@@ -62,8 +62,6 @@ public class Temperature {
    * @return a Temperature representing that value
    */
   public static Temperature fromFahrenheit(double fahrenheit) {
-    // TODO: convert Fahrenheit to Celsius, (fahrenheit - 32) * 5 / 9, and return
-    //       a Temperature for it.
-    return null;
+    return fromCelsius((fahrenheit - 32) * 5 / 9);
   }
 }
