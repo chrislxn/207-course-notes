@@ -32,8 +32,7 @@ public class Validators {
    * @return true iff input matches the phone-number pattern
    */
   public static boolean isPhoneNumber(String input) {
-    // TODO
-    return false;
+    return input.matches("\\d{3}-\\d{3}-\\d{4}");
   }
 
   /**
