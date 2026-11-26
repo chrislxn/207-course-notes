@@ -85,8 +85,10 @@ public class Extractor {
    */
   public static List<String> findCourseNumbers(String text) {
     List<String> results = new ArrayList<>();
-    // TODO: same loop as above, but add matcher.group(1) — the text captured by
-    //       the parenthesised (\d{3}) group — instead of the whole match.
+    Matcher matcher = COURSE_CODE.matcher(text);
+    while (matcher.find()) {
+      results.add(matcher.group(1));
+    }
     return results;
   }
 
