@@ -22,7 +22,7 @@ public class Temperature {
    *
    * @param celsius the temperature in degrees Celsius
    */
-  public Temperature(double celsius) {
+  private Temperature(double celsius) {
     this.celsius = celsius;
   }
 
