@@ -67,12 +67,12 @@ public class OrderSummary {
     int premiumCount = 0;
     double discount = 0.0;
 
-    // TODO (Split Loop, 13.5): this single loop does two unrelated jobs —
-    //      accumulating the subtotal and counting premium items. Split it into
-    //      two loops, then consider Extract Method (13.2) on each one.
-    for (int i = 0; i < itemPrices.length; i++) {
-      subtotal += itemPrices[i];
-      if (itemPrices[i] >= PREMIUM_ITEM_THRESHOLD) {
+    for (double price : itemPrices) {
+      subtotal += price;
+    }
+
+    for (double price : itemPrices) {
+      if (price >= PREMIUM_ITEM_THRESHOLD) {
         premiumCount++;
       }
     }
