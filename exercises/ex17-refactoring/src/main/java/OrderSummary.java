@@ -43,6 +43,11 @@ import java.util.Locale;
  */
 public class OrderSummary {
 
+  private static final double TAX_RATE = 0.13;
+  private static final double DISCOUNT_THRESHOLD = 200.0;
+  private static final double DISCOUNT_RATE = 0.10;
+  private static final double PREMIUM_ITEM_THRESHOLD = 100.0;
+
   /**
    * Builds a human-readable, multi-line summary of an order.
    *
@@ -67,17 +72,16 @@ public class OrderSummary {
     //      two loops, then consider Extract Method (13.2) on each one.
     for (int i = 0; i < itemPrices.length; i++) {
       subtotal += itemPrices[i];
-      if (itemPrices[i] >= 100.0) {
+      if (itemPrices[i] >= PREMIUM_ITEM_THRESHOLD) {
         premiumCount++;
       }
     }
 
-    // TODO: replace the magic numbers below with named constants.
-    if (subtotal > 200.0) {
-      discount = subtotal * 0.10;
+    if (subtotal > DISCOUNT_THRESHOLD) {
+      discount = subtotal * DISCOUNT_RATE;
     }
     double taxable = subtotal - discount;
-    double tax = taxable * 0.13;
+    double tax = taxable * TAX_RATE;
     double total = taxable + tax;
 
     // TODO (Extract Method, 13.2): everything from here down is one job —
