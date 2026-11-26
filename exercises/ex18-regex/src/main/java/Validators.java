@@ -44,7 +44,6 @@ public class Validators {
    * @return true iff input is a valid Java identifier
    */
   public static boolean isJavaVariableName(String input) {
-    // TODO
-    return false;
+    return input.matches("[A-Za-z_$][A-Za-z0-9_$]*");
   }
 }
