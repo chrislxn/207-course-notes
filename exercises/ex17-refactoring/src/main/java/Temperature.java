@@ -51,8 +51,7 @@ public class Temperature {
    * @return a Temperature representing that value
    */
   public static Temperature fromCelsius(double celsius) {
-    // TODO: return a Temperature for this Celsius value.
-    return null;
+    return new Temperature(celsius);
   }
 
   /**
